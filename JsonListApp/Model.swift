@@ -13,6 +13,7 @@ struct ItemJson: Codable {
     let name: String?
     let url: URL?
     let image: URL?
+    let subtitle: String?
 }
 
 // JSONのデータ構造

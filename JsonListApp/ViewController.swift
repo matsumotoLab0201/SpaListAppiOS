@@ -25,7 +25,7 @@ class ViewController: UIViewController,UISearchBarDelegate, UITableViewDataSourc
     }
     
     //0-1 温泉情報のlist
-    var jsonList : [(name:String , link:URL , image:URL)] = []
+    var jsonList : [(name:String , link:URL , image:URL , subtitle:String)] = []
 
     //0 URLSessonによるjsonの取得
     func showJsonList(){
@@ -61,9 +61,10 @@ class ViewController: UIViewController,UISearchBarDelegate, UITableViewDataSourc
                     // 取得している温泉の数だけ処理
                     for item in items {
                         // 温泉の名称、メーカー名、掲載URL、画像URLをアンラップ
-                        if let name = item.name , let link = item.url , let image = item.image {
+                        if let name = item.name , let link = item.url , let image = item.image ,
+                        let subtitle = item.subtitle {
                             // 1つの温泉をタプルでまとめて管理
-                            let jsonAll = (name,link,image)
+                            let jsonAll = (name,link,image,subtitle)
                             // 温泉の配列へ追加
                             self.jsonList.append(jsonAll)
                         }
@@ -97,12 +98,13 @@ class ViewController: UIViewController,UISearchBarDelegate, UITableViewDataSourc
     //lat Cellのセル名をstoryboadと一致させる必要がある
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 今回表示を行う、Cellオブジェクト（1行）を取得する
-        let cell = tableView.dequeueReusableCell(withIdentifier: "spaCell", for:indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "spaCell", for:indexPath) as UITableViewCell
+        cell.detailTextLabel?.numberOfLines=0
         
         
         // 温泉のタイトル設定
         cell.textLabel?.text = jsonList[indexPath.row].name
-        cell.detailTextLabel?.text = "unkonwn"
+        cell.detailTextLabel?.text = jsonList[indexPath.row].subtitle
         // 温泉画像を取得
         if let imageData = try? Data(contentsOf: jsonList[indexPath.row].image) {
             // 正常に取得できた場合は、UIImageで画像オブジェクトを生成して、Cellに温泉画像を設定
