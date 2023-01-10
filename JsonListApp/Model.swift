@@ -11,9 +11,12 @@ import Foundation
 // JSONのitem内のデータ構造
 struct ItemJson: Codable {
     let name: String?
-    let url: URL?
-    let image: URL?
-    let subtitle: String?
+    let station: String?
+    let cost1: String?
+    let cost2: String?
+    let walk: String?
+    let imageUrl: URL?
+    let url : URL?
 }
 
 // JSONのデータ構造
