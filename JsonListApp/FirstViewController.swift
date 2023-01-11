@@ -7,7 +7,7 @@
 import UIKit
 import SafariServices
 
-class ViewController: UIViewController,UISearchBarDelegate, UITableViewDataSource,UITableViewDelegate,SFSafariViewControllerDelegate {
+class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewDataSource,UITableViewDelegate,SFSafariViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +23,14 @@ class ViewController: UIViewController,UISearchBarDelegate, UITableViewDataSourc
     }
     
     //1 storyboardとの紐付け
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var spaButton: UIButton!
     
     @IBAction func tapSpaButton(_ sender: Any) {
         showJsonList()
     }
+
     
     //0-1 温泉情報のlist
     var jsonList : [(name:String , station:String , cost1:String ,cost2 :String, walk: String, imageUrl: URL,url:URL)] = []

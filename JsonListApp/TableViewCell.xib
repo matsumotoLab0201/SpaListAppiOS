@@ -67,6 +67,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="Cost" destination="3jt-ZZ-PDv" id="nPk-y3-fNW"/>
+                <outlet property="ImageView" destination="ER0-RK-eX2" id="mq3-W8-g5E"/>
                 <outlet property="SubTitle" destination="SoS-L1-3Tw" id="tVh-R9-tm1"/>
                 <outlet property="Title" destination="qUK-LH-zfz" id="5L9-Mh-IL6"/>
                 <outlet property="imageView" destination="ER0-RK-eX2" id="dNI-0R-G79"/>
