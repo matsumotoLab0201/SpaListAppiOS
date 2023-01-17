@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35013C672976757600FB73FC /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35013C662976757600FB73FC /* DetailView.storyboard */; };
+		3579A79F29764AD6002102AC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3579A79E29764AD6002102AC /* DetailViewController.swift */; };
 		3597B8B52949BF4100512DD6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3597B8B42949BF4100512DD6 /* Model.swift */; };
 		35AF54C1296D4F31000C96A2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AF54BF296D4F31000C96A2 /* TableViewCell.swift */; };
 		35AF54C2296D4F31000C96A2 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35AF54C0296D4F31000C96A2 /* TableViewCell.xib */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		35013C662976757600FB73FC /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
+		3579A79E29764AD6002102AC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3597B8B42949BF4100512DD6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		35AF54BF296D4F31000C96A2 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		35AF54C0296D4F31000C96A2 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 				35D1CE3F29497C0C001A75DC /* LaunchScreen.storyboard */,
 				35D1CE4229497C0C001A75DC /* Info.plist */,
 				3597B8B42949BF4100512DD6 /* Model.swift */,
+				35013C662976757600FB73FC /* DetailView.storyboard */,
+				3579A79E29764AD6002102AC /* DetailViewController.swift */,
 			);
 			path = JsonListApp;
 			sourceTree = "<group>";
@@ -242,6 +248,7 @@
 			files = (
 				35D1CE4129497C0C001A75DC /* LaunchScreen.storyboard in Resources */,
 				35AF54C2296D4F31000C96A2 /* TableViewCell.xib in Resources */,
+				35013C672976757600FB73FC /* DetailView.storyboard in Resources */,
 				35D1CE3E29497C0C001A75DC /* Assets.xcassets in Resources */,
 				35D1CE3C29497C0A001A75DC /* Main.storyboard in Resources */,
 			);
@@ -271,6 +278,7 @@
 				35AF54C1296D4F31000C96A2 /* TableViewCell.swift in Sources */,
 				35D1CE3929497C0A001A75DC /* FirstViewController.swift in Sources */,
 				35D1CE3529497C0A001A75DC /* AppDelegate.swift in Sources */,
+				3579A79F29764AD6002102AC /* DetailViewController.swift in Sources */,
 				35D1CE3729497C0A001A75DC /* SceneDelegate.swift in Sources */,
 				3597B8B52949BF4100512DD6 /* Model.swift in Sources */,
 			);

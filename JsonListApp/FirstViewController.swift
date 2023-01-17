@@ -120,7 +120,7 @@ class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewData
         // 温泉のタイトル設定
         
         cell.Title.text = jsonList[indexPath.row].name
-        cell.SubTitle.text = "\(jsonList[indexPath.row].station)駅　\(jsonList[indexPath.row].walk)分"
+        cell.SubTitle.text = "\(jsonList[indexPath.row].station)駅　徒歩\(jsonList[indexPath.row].walk)分"
         cell.Cost.text =
         "平日\(jsonList[indexPath.row].cost1)円　土日祝: \(jsonList[indexPath.row].cost2)円"
         
@@ -146,9 +146,45 @@ class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewData
         safariViewController.delegate = self
         
         // SafariViewが開かれる
-        present(safariViewController, animated: true, completion: nil)
+//    x    present(safariViewController, animated: true, completion: nil)
+        
+        showDetail2(
+            spaName: jsonList[indexPath.row].name,
+            detailImage: jsonList[indexPath.row].imageUrl,
+            station:jsonList[indexPath.row].station,
+            walk:jsonList[indexPath.row].walk,
+            cost1:jsonList[indexPath.row].cost1,
+            cost2:jsonList[indexPath.row].cost2
+        )
+
         
     }
+    
+    func showDetail(id: String){
+        performSegue(withIdentifier: "showDetailSegue", sender: nil)
+        //画面遷移はできている
+        //TODO: jsonList[indexPath.row].nameをDetailViewController.label.textに渡したい
+        
+    }
+       func showDetail2(
+        spaName: String, detailImage:URL, station: String, walk:String, cost1:String, cost2:String
+       ){
+        let storyboard: UIStoryboard = UIStoryboard(name: "DetailView", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "DetailViewId") as! DetailViewController
+        present(nextVC, animated: true, completion: nil)
+        
+        nextVC.detailLabel?.text = "\(spaName)"
+        
+        if let imageData = try? Data(contentsOf: detailImage) {
+            nextVC.detailImage?.image = UIImage(data: imageData)
+        }
+        
+        nextVC.detailSubTitle?.text = "\(station)駅　徒歩\(walk)分"
+        nextVC.detailCost?.text = "平日\(cost1)円　土日祝: \(cost2)円"
+        
+    }
+
+    
     
     //2-4 SafariViewを閉じる時のdelegate関数
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
