@@ -53,6 +53,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K71-Ie-Ph5">
+                                <rect key="frame" x="59" y="158" width="280" height="278"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="1cw-BI-AqG"/>
+                                    <constraint firstAttribute="height" constant="278" id="LoI-yO-ESV"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="tapImage:" destination="Y6W-OH-hqX" eventType="touchDown" id="TKf-6n-Bcg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -60,10 +72,13 @@
                             <constraint firstItem="WuN-1B-3N2" firstAttribute="top" secondItem="5N2-QU-L5B" secondAttribute="bottom" constant="39" id="67S-EQ-YS7"/>
                             <constraint firstItem="5N2-QU-L5B" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="59" id="6Vb-Xq-MWq"/>
                             <constraint firstItem="ql2-Km-kxM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="59" id="83j-wR-T7q"/>
+                            <constraint firstItem="ql2-Km-kxM" firstAttribute="top" secondItem="K71-Ie-Ph5" secondAttribute="bottom" constant="30" id="Ee8-GA-d9D"/>
                             <constraint firstItem="ql2-Km-kxM" firstAttribute="top" secondItem="WuN-1B-3N2" secondAttribute="bottom" constant="30" id="F4g-RI-OgY"/>
                             <constraint firstItem="WuN-1B-3N2" firstAttribute="top" secondItem="5N2-QU-L5B" secondAttribute="bottom" constant="39" id="GBU-eq-BdS"/>
                             <constraint firstItem="cYC-n3-vVq" firstAttribute="top" secondItem="ql2-Km-kxM" secondAttribute="bottom" constant="20.5" id="Gat-9s-f1K"/>
+                            <constraint firstItem="K71-Ie-Ph5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="59" id="PL9-W1-tvu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cYC-n3-vVq" secondAttribute="trailing" constant="75" id="Phs-sE-6b1"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="K71-Ie-Ph5" secondAttribute="trailing" constant="75" id="SKs-ee-kTw"/>
                             <constraint firstItem="cYC-n3-vVq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="59" id="Uea-DZ-A8f"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WuN-1B-3N2" secondAttribute="trailing" constant="75" id="XHP-R5-bHu"/>
                             <constraint firstItem="ql2-Km-kxM" firstAttribute="top" secondItem="WuN-1B-3N2" secondAttribute="bottom" constant="30" id="YJK-IW-VlT"/>
@@ -73,6 +88,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5N2-QU-L5B" secondAttribute="trailing" constant="75" id="mRL-DL-2Vw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cYC-n3-vVq" secondAttribute="bottom" constant="334.5" id="obl-5W-P8h"/>
                             <constraint firstItem="cYC-n3-vVq" firstAttribute="top" secondItem="ql2-Km-kxM" secondAttribute="bottom" constant="20.5" id="vwV-ek-LBF"/>
+                            <constraint firstItem="K71-Ie-Ph5" firstAttribute="top" secondItem="5N2-QU-L5B" secondAttribute="bottom" constant="39" id="zYr-ki-kXu"/>
                         </constraints>
                     </view>
                     <connections>

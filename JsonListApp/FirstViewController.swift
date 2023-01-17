@@ -5,9 +5,8 @@
 //
 
 import UIKit
-import SafariServices
 
-class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewDataSource,UITableViewDelegate,SFSafariViewControllerDelegate {
+class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewDataSource,UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,34 +139,34 @@ class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
         
         // SFSafariViewを開く
-        let safariViewController  = SFSafariViewController(url: jsonList[indexPath.row].url)
+        //let safariViewController  = SFSafariViewController(url: jsonList[indexPath.row].url)
         
         // delegateの通知先を自分自身
-        safariViewController.delegate = self
+        //safariViewController.delegate = self
         
         // SafariViewが開かれる
-//    x    present(safariViewController, animated: true, completion: nil)
+//        present(safariViewController, animated: true, completion: nil)
         
-        showDetail2(
+        showDetail(
             spaName: jsonList[indexPath.row].name,
             detailImage: jsonList[indexPath.row].imageUrl,
             station:jsonList[indexPath.row].station,
             walk:jsonList[indexPath.row].walk,
             cost1:jsonList[indexPath.row].cost1,
-            cost2:jsonList[indexPath.row].cost2
+            cost2:jsonList[indexPath.row].cost2,
+            urlD:jsonList[indexPath.row].url
         )
-
-        
     }
     
-    func showDetail(id: String){
+    
+    
+    func showDetail2(id: String){
         performSegue(withIdentifier: "showDetailSegue", sender: nil)
-        //画面遷移はできている
-        //TODO: jsonList[indexPath.row].nameをDetailViewController.label.textに渡したい
-        
+        //performSegueを使った遷移(今回は使わない)
     }
-       func showDetail2(
-        spaName: String, detailImage:URL, station: String, walk:String, cost1:String, cost2:String
+    
+       func showDetail(
+        spaName: String, detailImage:URL, station: String, walk:String, cost1:String, cost2:String ,urlD:URL?
        ){
         let storyboard: UIStoryboard = UIStoryboard(name: "DetailView", bundle: nil)
         let nextVC = storyboard.instantiateViewController(withIdentifier: "DetailViewId") as! DetailViewController
@@ -181,16 +180,21 @@ class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewData
         
         nextVC.detailSubTitle?.text = "\(station)駅　徒歩\(walk)分"
         nextVC.detailCost?.text = "平日\(cost1)円　土日祝: \(cost2)円"
-        
+           
+           //let hoge: URL? = nil
+             
+           guard let hoge = urlD else { return }
+           
+//           if let hego = urlD {
+//               nextVC.detailUrl = hoge
+//           } else {
+//
+//           }
+           
+           nextVC.detailUrl = hoge
+                
     }
 
-    
-    
-    //2-4 SafariViewを閉じる時のdelegate関数
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        // SafariViewを閉じる
-        dismiss(animated: true, completion: nil)
-    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
