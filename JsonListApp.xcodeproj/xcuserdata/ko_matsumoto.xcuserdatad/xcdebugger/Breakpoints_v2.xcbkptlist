@@ -14,8 +14,8 @@
             filePath = "JsonListApp/FirstViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "showDetail(spaName:detailImage:station:walk:cost1:cost2:urlD:)"
             landmarkType = "7">
          </BreakpointContent>

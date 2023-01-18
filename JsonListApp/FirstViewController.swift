@@ -14,22 +14,20 @@ class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewData
         tableView.dataSource = self
         tableView.delegate = self
         
-        
         //1. nibでCellのIdentifierを設定する
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
-        
         
     }
     
     //1 storyboardとの紐付け
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var spaButton: UIButton!
     
     @IBAction func tapSpaButton(_ sender: Any) {
         showJsonList()
     }
-
+    
     
     //0-1 温泉情報のlist
     var jsonList : [(name:String , station:String , cost1:String ,cost2 :String, walk: String, imageUrl: URL,url:URL)] = []
@@ -87,9 +85,9 @@ class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewData
                     // Table Viewを更新する
                     self.tableView.reloadData()
                     
-                    if let okashidbg = self.jsonList.first {
+                    if let spadbg = self.jsonList.first {
                         print ("----------------")
-                        print ("okashiList[0] = \(okashidbg)")
+                        print ("spaList[0] = \(spadbg)")
                     }
                 }
                 
@@ -114,7 +112,6 @@ class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 今回表示を行う、Cellオブジェクト（1行）を取得する
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for:indexPath) as! TableViewCell
-        //旧式let cell = tableView.dequeueReusableCell(withIdentifier: "spaCell", for:indexPath) as UITableViewCell
         
         // 温泉のタイトル設定
         
@@ -138,15 +135,6 @@ class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewData
         // ハイライト解除
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // SFSafariViewを開く
-        //let safariViewController  = SFSafariViewController(url: jsonList[indexPath.row].url)
-        
-        // delegateの通知先を自分自身
-        //safariViewController.delegate = self
-        
-        // SafariViewが開かれる
-//        present(safariViewController, animated: true, completion: nil)
-        
         showDetail(
             spaName: jsonList[indexPath.row].name,
             detailImage: jsonList[indexPath.row].imageUrl,
@@ -165,9 +153,10 @@ class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewData
         //performSegueを使った遷移(今回は使わない)
     }
     
-       func showDetail(
+    func showDetail(
         spaName: String, detailImage:URL, station: String, walk:String, cost1:String, cost2:String ,urlD:URL?
-       ){
+    ){
+        //DetailView:storyboardのファイル名 DetailViewId：storyboardのID
         let storyboard: UIStoryboard = UIStoryboard(name: "DetailView", bundle: nil)
         let nextVC = storyboard.instantiateViewController(withIdentifier: "DetailViewId") as! DetailViewController
         present(nextVC, animated: true, completion: nil)
@@ -180,21 +169,20 @@ class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewData
         
         nextVC.detailSubTitle?.text = "\(station)駅　徒歩\(walk)分"
         nextVC.detailCost?.text = "平日\(cost1)円　土日祝: \(cost2)円"
-           
-           //let hoge: URL? = nil
-             
-           guard let hoge = urlD else { return }
-           
-//           if let hego = urlD {
-//               nextVC.detailUrl = hoge
-//           } else {
+        
+        
+        guard let hoge = urlD else { return }
+        nextVC.detailUrl = hoge
+        
+//        use if
+//            if let hego = urlD {
+//            nextVC.detailUrl = hoge
+//        } else {
 //
-//           }
-           
-           nextVC.detailUrl = hoge
-                
+//        }
+        
     }
-
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
