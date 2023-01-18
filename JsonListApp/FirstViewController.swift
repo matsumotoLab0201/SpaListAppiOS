@@ -80,6 +80,7 @@ class FirstViewController: UIViewController,UISearchBarDelegate, UITableViewData
                             )
                             // 温泉の配列へ追加
                             self.jsonList.append(jsonAll)
+                            self.jsonList.sorted{$0.cost1 < $1.cost2}
                         }
                     }
                     // Table Viewを更新する
