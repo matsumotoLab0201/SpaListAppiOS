@@ -12,9 +12,9 @@ import Foundation
 struct ItemJson: Codable {
     let name: String?
     let station: String?
-    let cost1: String?
-    let cost2: String?
-    let walk: String?
+    let cost1: Int?
+    let cost2: Int?
+    let walk: Int?
     let imageUrl: URL?
     let url : URL?
 }
